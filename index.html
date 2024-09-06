@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Page de Connexion</h1>
+
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" id="password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const admin_username = 'admin';
+        const admin_password = '1234';
+
+        const clients = [
+            { id: 1, nom: 'Dupont', prenom: 'Jean', email: 'jean.dupont@example.com' },
+            { id: 2, nom: 'Martin', prenom: 'Marie', email: 'marie.martin@example.com' },
+        ];
+
+        if (username === admin_username && password === admin_password) {
+            window.location.href = 'clients.html';
+        } else {
+            let clientFound = false;
+
+            for (let i = 0; i < clients.length; i++) {
+                if (username === clients[i].nom && password === clients[i].prenom) {
+                    clientFound = true;
+                    localStorage.setItem('selectedClientId', clients[i].id);
+                    window.location.href = 'client_details.html';
+                    break;
+                }
+            }
+
+            if (!clientFound) {
+                alert('Nom d\'utilisateur ou mot de passe incorrect.');
+            }
+        }
+    });
+    </script>
+</body>
+</html>

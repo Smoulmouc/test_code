@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Détails du Client</h1>
+    <div id="clientDetails"></div>
+    <button id="backButton">Retour</button>
+
+    <script>
+        const clients = [
+            { id: 1, nom: 'Dupont', prenom: 'Jean', email: 'jean.dupont@example.com' },
+            { id: 2, nom: 'Martin', prenom: 'Marie', email: 'marie.martin@example.com' },
+        ];
+
+        function afficherDetailsClient() {
+            const clientId = localStorage.getItem('selectedClientId');
+            const client = clients.find(c => c.id == clientId);
+
+            if (client) {
+                const clientDetailsElement = document.getElementById('clientDetails');
+                clientDetailsElement.innerHTML = `
+                    <p><strong>ID :</strong> ${client.id}</p>
+                    <p><strong>Nom :</strong> ${client.nom}</p>
+                    <p><strong>Prénom :</strong> ${client.prenom}</p>
+                    <p><strong>Email :</strong> ${client.email}</p>
+                `;
+            } else {
+                document.getElementById('clientDetails').innerText = 'Client non trouvé';
+            }
+        }
+
+        afficherDetailsClient();
+
+        document.getElementById('backButton').addEventListener('click', () => {
+            window.history.back();
+        });
+
+    </script>
+</body>
+</html>
