@@ -1,0 +1,78 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; /* Fond gris clair pour un effet épuré */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centre le conteneur horizontalement */
+    align-items: center; /* Centre le conteneur verticalement */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+}
+
+/* Conteneur principal */
+.container {
+    background-color: white; /* Fond blanc pour le conteneur */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre subtile pour effet de profondeur */
+    width: 350px; /* Largeur fixe pour le conteneur */
+    text-align: center; /* Centre le texte à l'intérieur */
+}
+
+/* Conteneur pour le titre */
+.title-container {
+    margin-bottom: 20px; /* Espace entre le titre et le formulaire */
+}
+
+.title {
+    color: #333; /* Couleur du titre en gris foncé */
+    font-size: 24px; /* Taille du texte pour le titre */
+    font-weight: bold;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espace entre les champs du formulaire */
+}
+
+form input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc; /* Bordure grise autour des champs */
+    border-radius: 5px; /* Coins arrondis */
+    width: 100%; /* Prend toute la largeur du formulaire */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+}
+
+form input:focus {
+    border-color: #007bff; /* Bordure bleue lors du focus */
+    outline: none;
+}
+
+/* Boutons */
+form button, .container a button {
+    padding: 12px;
+    background-color: #28a745; /* Vert pour le bouton "Créer" */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Effet de transition pour hover */
+}
+
+form button:hover {
+    background-color: #218838; /* Vert plus foncé au survol */
+}
+
+.container a button {
+    background-color: #007bff; /* Bleu pour le bouton "Connexion" */
+    margin-top: 10px;
+}
+
+.container a button:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+}
